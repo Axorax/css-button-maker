@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>css button maker</title>
+        <link rel="stylesheet" href="./core.style.css" />
+        <style id="style-main"></style>
+    </head>
+    <body>
+        <div class="app-loader">
+            <section>
+                <div class="loader">A</div>
+                <div class="bottom">
+                    <p style="margin-top: 4rem">
+                        <span class="title">Loading... </span
+                        ><span class="content"></span>
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <script src="./modules/loader.js"></script>
+
+        <button id="hidden-button" style="display: none"></button>
+
+        <div class="app-preview">
+            <div class="preview-box"><button id="button">Button</button></div>
+        </div>
+
+        <div class="app-sidebar">
+            <div class="title">loading ...</div>
+            <div class="content">loading ...</div>
+        </div>
+
+        <!-- <div class="table">
+        <table class="mono">
+        <thead>
+            <tr>
+                <td>Key</td>
+                <td>Value</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>hi</td>
+                <td>hello ppl</td>
+            </tr>
+            <tr>
+            <td>hi</td>
+            <td>hello ppl</td>
+        </tr>
+        </tbody>
+    </table>
+        </div> -->
+
+        <div class="app-tools">
+            <div class="grid">
+                <button class="s-1" onclick="app.loadPanel('guide')">
+                    guide
+                </button>
+                <button class="s-1" onclick="app.loadPanel('static')">
+                    static
+                </button>
+                <button class="s-1" onclick="app.loadBuiltinTool('hover')">
+                    hover
+                </button>
+                <button class="s-1" onclick="app.loadBuiltinTool('focus')">
+                    focus
+                </button>
+                <button
+                    class="s-1"
+                    onclick="app.loadBuiltinTool('code-editor')"
+                >
+                    code-editor
+                </button>
+                <button class="s-1" onclick="app.loadBuiltinTool('plugins')">
+                    🔌 plugins
+                </button>
+                <button class="s-1" onclick="app.loadBuiltinTool('templates')">
+                    💡 templates
+                </button>
+                <button class="s-1" onclick="app.loadBuiltinTool('store')">
+                    store
+                </button>
+                <button
+                    class="s-1"
+                    onclick="app.loadBuiltinTool('import-export')"
+                >
+                    import-export
+                </button>
+                <button class="s-1" onclick="app.loadBuiltinTool('settings')">
+                    ⚙️ settings
+                </button>
+                <!-- <a href="//www.patreon.com/axorax" target="_blank">
+                    <button class="s-1">❤️ Donate</button>
+                </a> -->
+            </div>
+        </div>
+
+        <script src="./modules/local.js"></script>
+        <script src="./modules/appvar.js"></script>
+        <script src="./modules/misc.js"></script>
+        <script src="./modules/user.js"></script>
+        <script src="./modules/windrag.js"></script> <!-- https://www.npmjs.com/package/windrag -->
+        <script src="./modules/str.js"></script>
+        <script src="./modules/sidebar.js"></script>
+        <script src="./modules/app.js"></script>
+        <script src="./modules/app.themes.js"></script>
+        <script src="./modules/app.plugins.js"></script>
+        <script src="./modules/db.js"></script>
+        <script src="./modules/button.js"></script>
+        <script src="./modules/input.js"></script>
+        <script src="./core.script.js"></script>
+    </body>
+</html>

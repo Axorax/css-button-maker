@@ -1,0 +1,6 @@
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+core.script.min.js
+core.style.min.css

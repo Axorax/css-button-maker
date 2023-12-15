@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Theme template to CSS</title>
+        <link rel="stylesheet" href="./assets/css/theme-template-to-css.css" />
+        <script src="./assets/js/theme-template-to-css.js" defer></script>
+    </head>
+    <body>
+        <h1>Theme template to CSS</h1>
+
+        <div class="flex">
+            <div class="item">
+                <textarea
+                    id="toml"
+                    class="input-1"
+                    placeholder="🔮 Insert theme template here!"
+                ></textarea>
+            </div>
+            <div class="item controls">
+                <button onclick="convert()">🔮 Convert</button>
+                <button onclick="copy(this)">📋 Copy CSS</button>
+            </div>
+            <div class="item">
+                <pre id="css" class="input-1"></pre>
+            </div>
+        </div>
+    </body>
+</html>

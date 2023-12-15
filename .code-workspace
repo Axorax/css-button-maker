@@ -1,0 +1,15 @@
+{
+    "folders": [
+      {
+        "path": "."
+      }
+    ],
+    "settings": {
+        "editor.cursorBlinking": "smooth",
+        "editor.tabSize": 4,
+        "prettier.tabWidth": 4,
+        "files.insertFinalNewline": true,
+        "files.trimTrailingWhitespace": true
+    }
+}
+  

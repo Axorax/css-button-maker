@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Theme</title>
+        <link rel="stylesheet" href="./install.css" />
+    </head>
+    <body>
+        <main>
+            <div class="box">
+                <div class="title">loading...</div>
+                <div class="buttons">
+                    <button class="preview">Preview</button>
+                    <button class="install">Install</button>
+                </div>
+            </div>
+        </main>
+        <script src="./install.js"></script>
+        <script>
+            install(
+                "theme",
+                (title, button, params, theme, fetchSlug, type, buttons) => {
+                    if (theme) {
+                        fetch(`${fetchSlug}/themes/${theme}.css`).then(
+                            (res) => {
+                                if (!res.ok) {
+                                    fetch(
+                                        `${fetchSlug}/themes/${theme}.toml`
+                                    ).then((res) => {
+                                        if (!res.ok) {
+                                            title.innerHTML = `The theme '<span style="color: #537FE7;">${theme}</span>' doesn't exist!`;
+                                            button.remove("toml");
+                                            return;
+                                        }
+                                        buttons.style.display = "block";
+                                        action("toml");
+                                        return;
+                                    });
+                                }
+                                buttons.style.display = "block";
+                                action("css");
+                            }
+                        );
+                    } else {
+                        title.innerText =
+                            "Specify a theme to install!\n\n\nUse ?name=<theme-name>";
+                        button.remove();
+                    }
+
+                    function action(type) {
+                        title.innerText = theme;
+                        if (
+                            localStorage.getItem("theme") &&
+                            localStorage.getItem("theme").includes(theme)
+                        ) {
+                            button.innerText = "Uninstall";
+                            button.classList.add("uninstall");
+                            button.addEventListener("click", () => {
+                                localStorage.removeItem("theme");
+                                window.location.reload();
+                            });
+                        } else {
+                            if (type == "toml") {
+                                button.addEventListener("click", () => {
+                                    localStorage.setItem("theme", `${theme}.t`);
+                                    window.location.reload();
+                                });
+                                document.querySelector(".preview").addEventListener("click", () => {
+                                    window.location.replace(`${fetchSlug}/?theme=${theme}`);
+                                })
+                            } else if (type == "css") {
+                                button.addEventListener("click", () => {
+                                    localStorage.setItem("theme", `${theme}.c`);
+                                    window.location.reload();
+                                });
+                                document.querySelector(".preview").addEventListener("click", () => {
+                                    window.location.replace(`${fetchSlug}/?theme=${theme}`);
+                                })
+                            }
+                        }
+                    }
+                }
+            );
+        </script>
+    </body>
+</html>

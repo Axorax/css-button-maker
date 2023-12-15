@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Template</title>
+        <link rel="stylesheet" href="./install.css" />
+    </head>
+    <body>
+        <main>
+            <div class="box">
+                <div class="title">loading...</div>
+                <div class="buttons">
+                    <button class="install">Install</button>
+                </div>
+            </div>
+        </main>
+        <script src="./install.js"></script>
+        <script>
+            install(
+                "template",
+                (title, button, params, plugin, fetchSlug, type, buttons) => {
+                    const custom = params.get("custom");
+                    if (plugin) {
+                        fetch(`${fetchSlug}templates/${plugin}.json`)
+                            .then((res) => {
+                                if (!res.ok) {
+                                    title.innerHTML = `The template '<span style="color: #537FE7;">${plugin}</span>' doesn't exist!`;
+                                    button.remove();
+                                    return false;
+                                } else {
+                                    buttons.style.display = "block";
+                                    return res.json();
+                                }
+                            })
+                            .then((json) => {
+                                if (json === false) return;
+                                title.innerText = plugin;
+                                button.addEventListener("click", () => {
+                                    localStorage.setItem(
+                                        "template",
+                                        JSON.stringify(json)
+                                    );
+                                });
+                            });
+                    } else if (custom) {
+                        buttons.style.display = "block";
+                        title.innerText = "custom template";
+                        button.addEventListener("click", () => {
+                            localStorage.setItem(
+                                "template",
+                                JSON.stringify(custom)
+                            );
+                        });
+                    } else {
+                        title.innerText =
+                            "Specify a template to install!\n\n\nUse ?name=<template-name>";
+                        button.remove();
+                    }
+                }
+            );
+        </script>
+    </body>
+</html>

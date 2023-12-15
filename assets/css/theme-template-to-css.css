@@ -1,0 +1,107 @@
+@font-face {
+    font-family: "default";
+    src: url("../../assets/fonts/opensans.ttf");
+}
+
+:root {
+    color-scheme: dark;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "default", sans-serif;
+}
+
+textarea,
+textarea:hover,
+textarea:focus,
+input,
+input:hover,
+input:focus {
+    outline: none;
+}
+
+.flex {
+    display: flex;
+    /* flex-wrap: wrap; */
+    gap: 3rem;
+    align-items: center;
+    overflow: hidden;
+    justify-content: center;
+    max-width: 100vw;
+    padding: 1rem;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.2rem;
+    padding-top: 1rem;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+.flex .item.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.flex .item.controls button {
+    position: relative;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: #537fe7;
+    color: #fff;
+    font-size: 1rem;
+    padding: 1rem 3rem;
+    word-break: keep-all;
+    white-space: nowrap;
+}
+
+.flex .item.controls button:hover,
+.flex .item.controls button:focus {
+    background-color: #4b73d1;
+    opacity: 0.8;
+}
+
+.input-1 {
+    margin: 2rem 0;
+    border-radius: 5px;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: 1.5px solid #222222;
+    height: calc(100vh - 1.5rem - 9.6rem);
+    resize: none;
+    min-width: 33vw;
+    max-width: calc(100% - 2rem);
+    background: #121212;
+}
+
+.input-1:hover,
+.input-1:focus {
+    border-color: #3d3d3d;
+}
+
+@media (max-width: 1052px) {
+    .input-1 {
+        min-width: 30vw;
+    }
+}
+
+@media (max-width: 926px) {
+    .flex {
+        display: block;
+        margin: 0 1.5rem;
+    }
+    .flex .item.controls button {
+        height: 4rem;
+        font-size: 1.2rem;
+    }
+    .input-1 {
+        width: calc(100% - 2.2rem);
+    }
+}

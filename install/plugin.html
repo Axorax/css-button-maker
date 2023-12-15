@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Plugin</title>
+        <link rel="stylesheet" href="./install.css" />
+    </head>
+    <body>
+        <main>
+            <div class="box">
+                <div class="title">loading...</div>
+                <div class="buttons">
+                    <button class="install">Install</button>
+                </div>
+            </div>
+        </main>
+
+        <script src="./install.js"></script>
+        <script>
+            install(
+                "plugin",
+                (title, button, params, plugin, fetchSlug, type, buttons) => {
+                    if (plugin) {
+                        fetch(`${fetchSlug}/plugins/${plugin}.js`).then(
+                            (res) => {
+                                if (!res.ok) {
+                                    title.innerHTML = `The plugin '<span style="color: #537FE7;">${plugin}</span>' doesn't exist!`;
+                                    button.remove();
+                                    return;
+                                }
+                                buttons.style.display = "block";
+                                const array =
+                                    JSON.parse(
+                                        localStorage.getItem("plugins")
+                                    ) || [];
+
+                                if (array.includes(plugin)) {
+                                    title.innerText = plugin;
+                                    button.innerText = "Uninstall";
+                                    button.classList.add("uninstall");
+                                    button.addEventListener("click", () => {
+                                        array.splice(array.indexOf(plugin), 1);
+                                        localStorage.setItem(
+                                            "plugins",
+                                            JSON.stringify(array)
+                                        );
+                                        window.location.reload();
+                                    });
+                                } else {
+                                    title.innerText = plugin;
+                                    button.addEventListener("click", () => {
+                                        array.push(plugin);
+                                        localStorage.setItem(
+                                            "plugins",
+                                            JSON.stringify(array)
+                                        );
+                                        window.location.reload();
+                                    });
+                                }
+                            }
+                        );
+                    } else {
+                        title.innerText = `Specify a ${type} to install!\n\n\nUse ?name=<${type}-name>`;
+                        button.remove();
+                    }
+                }
+            );
+        </script>
+    </body>
+</html>

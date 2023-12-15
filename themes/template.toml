@@ -1,0 +1,8 @@
+[.app-sidebar]
+
+background = purple
+
+[.app-tools]
+
+color = red
+background = yellow

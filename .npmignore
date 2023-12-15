@@ -1,0 +1,16 @@
+# Folders
+node_modules/
+.github/
+
+# Ignore Files
+.gitignore
+.npmignore
+.prettierignore
+
+# Settings Files
+.prettierrc.json
+.editorconfig
+.code-workspace
+
+# Files
+CODE_OF_CONDUCT.md

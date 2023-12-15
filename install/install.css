@@ -1,0 +1,80 @@
+@font-face {
+    font-family: "mono";
+    src: url("../assets/fonts/robotomono.ttf");
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "mono", monospace;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    border-radius: 5px;
+    border: 1.3px solid #3d3d3d;
+    background: #111111b3;
+    backdrop-filter: blur(2px);
+    max-width: calc(100% - 2rem);
+    min-width: 18rem;
+    padding: 1.4rem;
+    box-shadow: 0 0 18px #111 inset;
+}
+
+.box .title {
+    color: #fff;
+    font-family: "mono", monospace;
+}
+
+.box .preview {
+    margin-top: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    color: #fff;
+    width: 100%;
+    border-radius: 5px;
+    padding: 0.7rem;
+    border: 1px solid #535353;
+    background: #111111d5;
+}
+
+.box .preview:hover {
+    background: #292929e4;
+}
+
+.box .buttons {
+    margin-top: 2rem;
+    display: none;
+}
+
+.box .install {
+    margin-top: 1rem;
+    cursor: pointer;
+    background: linear-gradient(to right, #537fe7, #62b6ff);
+    color: #fff;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    padding: 0.7rem;
+}
+
+.box .install:hover {
+    outline-offset: 2px;
+    outline: 0.1px solid #537fe7;
+}
+
+.box .install.uninstall {
+    background: linear-gradient(to right, #ff1e00, #e64848);
+}
+
+.box .install.uninstall:hover {
+    outline-color: #ff1e00;
+}

@@ -1,0 +1,25 @@
+{
+    "name": "css-button-maker",
+    "version": "1.0.0",
+    "description": "Create stunning buttons in just a few clicks!",
+    "main": "server.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Axorax/css-button-maker.git"
+    },
+    "keywords": [
+        "css",
+        "css-buttons",
+        "button",
+        "css-button-maker"
+    ],
+    "author": "Axorax",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Axorax/css-button-maker/issues"
+    },
+    "homepage": "https://github.com/Axorax/css-button-maker#readme",
+    "devDependencies": {
+        "prettier": "^2.8.7"
+    }
+}
